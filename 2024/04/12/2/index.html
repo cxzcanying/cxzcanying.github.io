@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            Blog
+            Stable Diffusion本地部署教程(未完工)
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,92 +32,116 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/index.css">
-<div id="count"></div>
-<div id="header" >
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-title">cxzcanying</h1>
-                <h2 class="header-description" id="hitokoto"></h2>
-                <h3 class="header-info" id="hitokotoAuthor"></h3>
+                <h1 class="header-subtitle">Stable Diffusion本地部署教程(未完工)</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-04-12
+                        </span>
+                        
+                            
+                                <span id="/2024/04/12/2/" class="leancloud_visitors" data-flag-title="Stable Diffusion本地部署教程(未完工)">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/04/12/2/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
+                        
+                            <span class="tag-color">AI</span>
+                        
+                            <span class="tag-color">Stable Diffusion</span>
+                        
+                    
+                </div>
             
         </div>
     </div>
     
-        <a class="scroll-down" href="javascript:;" target="_self" data-offset="-45">
-            <i class="scroll-down-icon iconfont icon-return"></i>
-        </a>
-    
 </div>
 <div id="container">
     
-        
-            <!-- 首页 -->
-            <div class="articles">
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p>本文将介绍ai绘画模型Stable-diffusion的本地化部署及实战</p>
+<span id="more"></span>
+<h1 id="AI模型本地化部署"><a href="#AI模型本地化部署" class="headerlink" title="AI模型本地化部署"></a>AI模型本地化部署</h1><blockquote>
+<p>在现在的ai大趋势下，有时候拥有自己可控的ai模型是至关重要的，本文就来介绍ai模型的具体部署步骤<br>前置条件</p>
+</blockquote>
+<ul>
+<li>在Windows系统下进行，且是nvidia系列独立显卡。</li>
+<li>如遇运行库问题请自行安装<br>win+r运行cmd，然后输入<code>nvidia-smi</code>命令，查看CUDA版本和N卡的驱动版本号，N卡驱动请更新到最新版本，如需安装驱动请前往英伟达官网<code>https://www.nvidia.cn/geforce/drivers/</code>自行下载。<br>然后下载<code>https://pan.baidu.com/s/15OSs2dsWhhOTz0fo5fGNqA?pwd=otvy</code>如果你尚未安装Git请参考上篇文章。这就是本次安装所需的全部程序了。</li>
+</ul>
+<p>打开下载的A启动器压缩包，解压出来，把A启动器单独拖到一个专门的文件夹里面，注意文件夹路径不能有中文，然后双击安装，此程序会自动安装所需依赖库【Q1】。安装成功后启动程序，此时会提示找不到内核，点确定，然后再点是。<br>此时弹出内核安装界面，选使用国内镜像安装，然后直接下一步，程序会自动安装，等待安装完成即可。</p>
+<p>然后再点击文件夹里面的启动器打开图形界面，接下来进入侧边栏的高级选项，在性能设置里把生成引擎和显存优化设置到与你的显卡匹配的选项（一般默认都是设置好的）。在窗口上方点击环境维护，然后选择原生组件管理，将缺失的组件安装。</p>
+<h2 id="pytorch安装（默认安装好python并且设置好环境变量）"><a href="#pytorch安装（默认安装好python并且设置好环境变量）" class="headerlink" title="pytorch安装（默认安装好python并且设置好环境变量）"></a>pytorch安装（默认安装好python并且设置好环境变量）</h2><p>选择启动器里面的一键启动，提示需要安装pytorch库，选择忽略警告并继续，然后根据提示自动安装pytorch即可安装成功</p>
+<p>安装成功后再次点击启动，初次启动需要下载模型库，下载过程比较缓慢，请耐心等待。</p>
+
                 
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2024/04/12/2/">Stable Diffusion本地部署教程(未完工)</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2024-04-12
-                            </span>
-                            
-                                
-                                    <span id="/2024/04/12/2/" class="leancloud_visitors" data-flag-title="Stable Diffusion本地部署教程(未完工)">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/04/12/2/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/usr.jpg" alt="cxzcanying">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>cxzcanying
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/04/12/2/" target="_blank">Stable Diffusion本地部署教程(未完工)</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>为汝所欲为，即为汝之法.
+        <br>
+        <span class="suffix-box-title">关于主题：</span><a href="https://github.com/first19326/Hexo-LiveForCode" target="_blank">Hexo - Live For Code</a>
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tags/AI/">AI</a>
+                        
+                            <a href="/tags/Stable-Diffusion/">Stable Diffusion</a>
+                        
                     </div>
                 
-                    <div class="article">
-                        <div class="article-title">
-                            <a href="/2023/12/21/1/">如何搭建自己的博客</a>
-                            
-                        </div>
-                        <div class="article-abstract">
-                            
-                        </div>
-                        <div class="clear"></div>
-                        <div class="article-info">
-                            <span>
-                                <i class="iconfont icon-time"></i> 发表时间：2023-12-21
-                            </span>
-                            
-                                
-                                    <span id="/2023/12/21/1/" class="leancloud_visitors" data-flag-title="如何搭建自己的博客">
-                                        <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                    </span>
-                                
-                                
-                                    <span>
-                                        <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2023/12/21/1/"></span>
-                                    </span>
-                                
-                            
-                        </div>
-                        <div class="clear"></div>     
-                    </div>
-                
+                <div class="article-prev-next">
+                    
+                    
+                        <a href="/2023/12/21/1/" class="next-prefix">» </a> 下一篇：    <a href="/2023/12/21/1/" title="发布于 2023-12-21 01:32">如何搭建自己的博客</a>
+                    
+                </div>
             </div>
             
-            
+    <div class="article-comments">
         
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
     
 </div>
     <div id="footer">
@@ -149,7 +173,7 @@
             <div class="menu-list">
                 <ul>
                     
-                        <li class=" active "><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
                     
                         <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
                     
