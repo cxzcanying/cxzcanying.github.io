@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            Stable Diffusion本地部署教程
+            java学习笔记（1）
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -37,21 +37,21 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">Stable Diffusion本地部署教程</h1>
+                <h1 class="header-subtitle">java学习笔记（1）</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2024-04-12
+                            <i class="iconfont icon-time"></i> 发表时间：2024-07-26
                         </span>
                         
                             
-                                <span id="/2024/04/12/2/" class="leancloud_visitors" data-flag-title="Stable Diffusion本地部署教程">
+                                <span id="/2024/07/26/java1/" class="leancloud_visitors" data-flag-title="java学习笔记（1）">
                                     <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                                 </span>
                             
                             
                                 <span>
-                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/04/12/2/"></span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/07/26/java1/"></span>
                                 </span>
                               
                         
@@ -59,9 +59,7 @@
                     
                     
                         
-                            <span class="tag-color">AI</span>
-                        
-                            <span class="tag-color">Stable Diffusion</span>
+                            <span class="tag-color">Java</span>
                         
                     
                 </div>
@@ -76,57 +74,97 @@
         <div id="article">
             <div class="toc"></div>
             <div class="article-body">
-                <p>本文将介绍AI绘画模型Stable-diffusion的本地化部署及实战</p>
+                <p>Java第一次学习笔记</p>
 <span id="more"></span>
 
-<p>在写本文前，请允许我向国内AI绘画带头人，赛博佛祖</p>
-<p>[@秋葉aaaki]: <a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">https://space.bilibili.com/12566101</a>	“秋葉aaaki “</p>
-<p>致以最诚挚的敬意。</p>
-<h1 id="AI模型本地化部署"><a href="#AI模型本地化部署" class="headerlink" title="AI模型本地化部署"></a>AI模型本地化部署</h1><blockquote>
-<p>在现在的AI大趋势下，有时候拥有自己可控的AI模型是至关重要的，本文就来介绍AI模型的具体部署步骤<br>前置条件</p>
-</blockquote>
-<ul>
-<li>在Windows系统下进行，且是Nvidia系列独立显卡（独立显存大于4G），系统内存8G以上，显卡最好为20系之后显卡。</li>
-<li>如遇运行库问题请自行安装（一般为c++问题）</li>
-<li>电脑上有Python3.7之后的版本，推荐3.10.8（安装教程见网上，注意配置系统环境变量）</li>
-<li>建议电脑要有出国工具，安装过程中大部分问题都可以用科学解决</li>
+<h1 id="java学习笔记（1）"><a href="#java学习笔记（1）" class="headerlink" title="java学习笔记（1）"></a>java学习笔记（1）</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#jvmjrejdk">JVM，JRE，JDK</a></li>
+<li><a href="#java%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95">Java安装目录</a></li>
+<li><a href="#java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">Java开发环境搭建</a></li>
+<li><a href="#java%E8%AF%AD%E6%B3%95%E5%88%9D%E6%AD%A5">Java语法初步</a></li>
 </ul>
-<p>win+r运行cmd，然后输入<code>nvidia-smi</code>命令，查看CUDA版本和N卡的驱动版本号，<img src="/./imgs/$%7Bfiilename%7D/4-1713101937000-13.png" alt="4">N卡驱动请更新到最新版本，如需安装驱动请前往英伟达官网<code>https://www.nvidia.cn/geforce/drivers/</code>自行下载。然后下载<code>https://pan.quark.cn/s/2c832199b09b</code>，如果你尚未安装Git请参考上篇文章。再下载</p>
-<p>[1]: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15OSs2dsWhhOTz0fo5fGNqA?pwd=otvy">https://pan.baidu.com/s/15OSs2dsWhhOTz0fo5fGNqA?pwd=otvy</a>	“秋叶启动器精简版”</p>
-<h3 id="1-Anaconda下载"><a href="#1-Anaconda下载" class="headerlink" title="1.Anaconda下载"></a>1.Anaconda下载</h3><p>下载</p>
-<p>[2]: <a target="_blank" rel="noopener" href="https://www.anaconda.com/products/distribution/">https://www.anaconda.com/products/distribution/</a>	“Anaconda”</p>
-<p>运行安装程序，按照向导完成安装，并确保在安装过程中添加Anaconda到系统环境变量，以便全局访问conda命令。</p>
-<h3 id="2-下载秋叶启动器自安装版本"><a href="#2-下载秋叶启动器自安装版本" class="headerlink" title="2.下载秋叶启动器自安装版本"></a>2.下载秋叶启动器自安装版本</h3><p>打开下载的秋叶启动器安装包，解压出来，把秋叶启动器单独拖到一个专门的文件夹里面，注意文件夹路径不能有中文，然后双击安装，此程序会自动安装所需依赖库【Q1】。安装成功后启动程序，此时会提示找不到内核，点确定，然后再点是。<br>此时弹出内核安装界面，选使用国内镜像安装，然后直接下一步，程序会自动安装，等待安装完成即可。</p>
-<p>进去后界面如下图所示<img src="/./imgs/$%7Bfiilename%7D/2-1713101878973-4.png" alt="2"></p>
-<p>接下来进入侧边栏的高级选项，<img src="/./imgs/$%7Bfiilename%7D/3-1713101892343-6.png" alt="3"></p>
-<p>在性能设置里把生成引擎和显存优化设置到与你的显卡匹配的选项（一般默认都是设置好的）。在窗口上方点击环境维护，然后选择原生组件管理，将缺失的组件安装。</p>
-<p>安装完成后如图<img src="/./imgs/$%7Bfiilename%7D/5-1713101925038-11.png" alt="5"></p>
-<h3 id="3-Pytorch安装（默认安装好Python并且设置好环境变量）"><a href="#3-Pytorch安装（默认安装好Python并且设置好环境变量）" class="headerlink" title="3.Pytorch安装（默认安装好Python并且设置好环境变量）"></a>3.Pytorch安装（默认安装好Python并且设置好环境变量）</h3><p>选择安装pytorch的版本，这步需要最开始时看到的CUDA版本和Python版本作为依据，可以网上查询，一般为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Torch 2.1.2（CUDA12.1）+xFormers0.0.23.post1</span><br></pre></td></tr></table></figure>
+<h2 id="JVM，JRE-JDK"><a href="#JVM，JRE-JDK" class="headerlink" title="JVM，JRE,JDK"></a>JVM，JRE,JDK</h2><h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><p>Java虚拟机（Java Virtual Machine，JVM）是一种用于运行Java字节码（javac作为编译器可将Java源代码编译成字节码）的虚拟机。JVM是运行Java字节码的虚拟机，它负责执行字节码，并将其翻译成底层系统指令。JVM是Java的核心，是整个Java体系的基石。</p>
+<h3 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h3><p>Java运行环境（Java Runtime Environment，JRE）是Java的运行环境，它是运行Java程序的必备环境。JRE包含Java虚拟机（JVM）、Java类库和其他支持运行Java程序的软件。</p>
+<h3 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h3><p>Java开发工具包（Java Development Kit，JDK）是Java的开发环境，它是Java SE（Standard Edition）、Java EE（Enterprise Edition）和Java ME（Micro Edition）的开发环境。JDK包含JRE、Java编译器（javac）、Java调试器（jdb）、Java文档工具（javadoc）、Java单元测试框架（junit）、Java分析工具（jvisualvm）等工具。</p>
+<h2 id="Java安装目录"><a href="#Java安装目录" class="headerlink" title="Java安装目录"></a>Java安装目录</h2><ul>
+<li>bin：存放编译，执行，调试Java程序的工具</li>
+<li>conf：存放配置文件</li>
+<li>lib：存放Java附加类库和支持文件</li>
+<li>include：存放本地代码编程需要的C&#x2F;C++头文件</li>
+<li>src：存放Java源代码</li>
+<li>jmods：存放Java模块化系统的模块，创建自定义运行时映像需要的模块文件</li>
+<li>legal：存放许可证文件<br>（jdk8之前版本还会有jre目录）</li>
+</ul>
+<h2 id="Java开发环境搭建"><a href="#Java开发环境搭建" class="headerlink" title="Java开发环境搭建"></a>Java开发环境搭建</h2><h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><ul>
+<li>下载JDK安装包<a target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies/downloads/">JDK22</a>，解压到指定目录</li>
+<li>配置环境变量，将JDK的bin目录添加到PATH中</li>
+<li>验证安装是否成功，在命令行中输入java -version，出现版本号即为安装成功</li>
+</ul>
+<h3 id="安装集成开发环境（IDE）"><a href="#安装集成开发环境（IDE）" class="headerlink" title="安装集成开发环境（IDE）"></a>安装集成开发环境（IDE）</h3><ul>
+<li>推荐使用<a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a></li>
+<li>验证安装是否成功，新建Java项目，编写Java代码，运行程序</li>
+</ul>
+<p>1.新建文本文档，将文件名改为HelloWorld.java，内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(&quot;HelloWorld!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>或者CUDA核心为11.8的版本，具体取决于你的CUDA版本，开启强制重装。【Q2】</p>
-<p>选择启动器里面的一键启动，提示需要安装Pytorch库，选择忽略警告并继续，然后根据提示自动安装pytorch即可安装成功</p>
-<p>安装成功后再次点击启动，初次启动需要下载模型库，下载过程比较缓慢，请耐心等待。</p>
-<h3 id="4-SD-webui（Stable-Diffusion-WebUI）界面介绍以及初级使用"><a href="#4-SD-webui（Stable-Diffusion-WebUI）界面介绍以及初级使用" class="headerlink" title="4.SD-webui（Stable Diffusion-WebUI）界面介绍以及初级使用"></a>4.SD-webui（Stable Diffusion-WebUI）界面介绍以及初级使用</h3><p>启动成功后<img src="/./imgs/$%7Bfiilename%7D/6.png" alt="6"></p>
-<p>如果你的界面不是中文，请参考这篇文章</p>
-<p>[3]: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637982117">https://zhuanlan.zhihu.com/p/637982117</a>	“知乎教程”</p>
-<p>（注意如果在sd网页端无法搜索到中文插件，可前往启动器的版本管理，安装新扩展界面进行安装）</p>
-<p>然后根据以下图片说明进行调试:</p>
-<p><img src="/./imgs/$%7Bfiilename%7D/7-1713101979558-17.png" alt="7"></p>
-<p>剩余更多进阶教学在</p>
-<p>[@秋葉aaaki]:  <a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">https://space.bilibili.com/12566101</a>	“秋葉aaaki”</p>
-<p>的</p>
-<p>[视频]: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iM4y1y7oA/">https://www.bilibili.com/video/BV1iM4y1y7oA/</a>	“视频评论区”</p>
-<p>和</p>
-<p>[教程]: <a target="_blank" rel="noopener" href="https://openai.wiki/stable-diffusion.html">https://openai.wiki/stable-diffusion.html</a>	“教程”</p>
-<p>查看</p>
-<h1 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><h3 id="Q1：安装到一半提示无法安装怎么办？"><a href="#Q1：安装到一半提示无法安装怎么办？" class="headerlink" title="Q1：安装到一半提示无法安装怎么办？"></a>Q1：安装到一半提示无法安装怎么办？</h3><p><strong>A1：科学解决</strong></p>
-<h3 id="Q2：安装过程中提示下载出错怎么办？"><a href="#Q2：安装过程中提示下载出错怎么办？" class="headerlink" title="Q2：安装过程中提示下载出错怎么办？"></a>Q2：安装过程中提示下载出错怎么办？</h3><p>A2：科学解决，如果仍然解决不了可直接点击主页里面的一键启动，选择忽视警告安装，然后自动安装一般也可以解决。</p>
-<p>更多Q&amp;A在参考</p>
-<p>[]: <a target="_blank" rel="noopener" href="https://openai.wiki/stable-diffusion-error.html">https://openai.wiki/stable-diffusion-error.html</a>	“错误汇总”</p>
-<p>本网页会更新个人用到的资源站</p>
-<p>提示词网站<code>https://tags.novelai.dev/</code></p>
-<p>模型下载网站<code>https://civitai.ai</code>(需要科学)</p>
+<p>2.在该路径下打开cmd，输入<code>javac HelloWorld.java</code>，编译Java代码</p>
+<p>（第一次运行若出现问题：类X是公共的, 应在名为X.java的文件中声明 报错提示，此时应检查class后面的方法名是否与文件名一致）</p>
+<p>3.输入<code>java HelloWorld</code>，运行Java程序，输出HelloWorld!(此时目录下会出现HelloWorld.class文件)</p>
+<h2 id="Java语法初步"><a href="#Java语法初步" class="headerlink" title="Java语法初步"></a>Java语法初步</h2><h3 id="注释与关键字"><a href="#注释与关键字" class="headerlink" title="注释与关键字"></a>注释与关键字</h3><p>1.注释：</p>
+<ul>
+<li>单行注释：&#x2F;&#x2F;</li>
+<li>多行注释：&#x2F;* *&#x2F;</li>
+</ul>
+<p>2.关键字：字母全部小写且一般有高亮显示<br>    class关键字<br>    用于创建或者定义一个类，后面接类名</p>
+<h3 id="数据类型与字面量"><a href="#数据类型与字面量" class="headerlink" title="数据类型与字面量"></a>数据类型与字面量</h3><p>1.整数类型：byte（取值范围-128~127）、short、int（默认）、long（须在数据值后加L）</p>
+<p>2.浮点类型：float（须在数据值后加F）、double（默认）</p>
+<p>3.字符类型：char（单引号，单个字符）</p>
+<p>4.布尔类型：boolean</p>
+<p>5.字符串类型：String（双引号，多个字符）</p>
+<p>6.空类型：null（不能直接打印）</p>
+<p>取值范围大小关系：double &gt; float &gt; long &gt; int &gt; short &gt; byte</p>
+<p>制表符\t（字符长度补齐到8或8的倍数）、换行符\n、回车符\r</p>
+<p>例如：System.out.println(“Hello\tWorld!”);</p>
+<p>System.out.println(“Hello” + “\t” + “World!”);</p>
+<p>进制注意事项：</p>
+<ul>
+<li>十进制：10</li>
+<li>二进制：0b或0B开头</li>
+<li>八进制：0开头</li>
+<li>十六进制：0x或0X开头</li>
+</ul>
+<p>例：0b123为语法错误 </p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>1.变量声明：数据类型 变量名 &#x3D; 初始值;</p>
+<p>2.变量作用域：局部变量（方法内）、实例变量（类的成员变量）、类变量（static修饰的成员变量）</p>
+<p>3.变量命名规则：见名知意，见字如面</p>
+<p>4.常量：final修饰的变量，只能赋值一次，常量名一般全部大写</p>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p>1.算术运算符：+、-、*、&#x2F;、%、++、–</p>
+<p>1）如果有小数参与运算，结果有可能是不准确的（JavaSE7之后引入BigDecimal类解决此问题）</p>
+<p>2）取模运算%也是做除法运算，结果是取余数</p>
+<p>3）隐式转换两种提升规则：</p>
+<ul>
+<li><p>取值范围小的类型向取值范围大的类型提升</p>
+</li>
+<li><p>byte short char三种类型数据运算时，都会直接先提升为int类型再进行运算</p>
+</li>
+</ul>
+<p>4）强制转换（取值范围大赋值给取值范围小）</p>
+<ul>
+<li>语法：(目标数据类型) 变量名&#x3D;(目标数据类型)被强转的数据;<br>例byte result &#x3D; (byte) (a + b);<br>2.赋值运算符：&#x3D;、+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;</li>
+</ul>
+<p>3.关系运算符：&#x3D;&#x3D;、!&#x3D;、&gt;、&lt;、&gt;&#x3D;、&lt;&#x3D;</p>
+<p>4.逻辑运算符：&amp;&amp;、||、!</p>
+<h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><p>1.标识符：由字母、数字、下划线和美元符号$组成，且不能以数字开头</p>
+<p>2.关键字不能作为标识符，区分大小写</p>
+<p>  软性建议</p>
+<p>3.小驼峰命名法（lowerCamelCase）</p>
+<p>一个单词时全部小写</p>
+<p>多个单词时，第一个单词首字母小写，后续单词首字母大写</p>
+<p>例如：userName、userAge、userAddress</p>
+<p>4.大驼峰命名法（UpperCamelCase）[阿里巴巴命名规范强制要求]</p>
+<p>一个单词时首字母大写</p>
+<p>多个单词时，每个单词的首字母都大写</p>
+<p>例如：MacroPolo 、 UserDo 、 XmlService</p>
 
                 
                 <p class="end">__END__</p>
@@ -139,7 +177,7 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>cxzcanying
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/2024/04/12/2/" target="_blank">Stable Diffusion本地部署教程</a>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/07/26/java1/" target="_blank">java学习笔记（1）</a>
         <br>
         <span class="suffix-box-title">作者签名：</span>为汝所欲为，即为汝之法.
         <br>
@@ -155,19 +193,17 @@
                     <div class="tag">
                         标签：
                         
-                            <a href="/tags/AI/">AI</a>
-                        
-                            <a href="/tags/Stable-Diffusion/">Stable Diffusion</a>
+                            <a href="/tags/Java/">Java</a>
                         
                     </div>
                 
                 <div class="article-prev-next">
                     
-                        <a href="/2024/07/26/java1/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/07/26/java1/" title="发布于 2024-07-26 01:08">java学习笔记（1）</a>
+                        <a href="/2024/07/28/java2/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/07/28/java2/" title="发布于 2024-07-28 05:57">java学习笔记（2）</a>
                         <br>
                     
                     
-                        <a href="/2023/12/21/1/" class="next-prefix">» </a> 下一篇：    <a href="/2023/12/21/1/" title="发布于 2023-12-21 01:32">如何搭建自己的博客</a>
+                        <a href="/2024/04/12/2/" class="next-prefix">» </a> 下一篇：    <a href="/2024/04/12/2/" title="发布于 2024-04-12 11:08">Stable Diffusion本地部署教程</a>
                     
                 </div>
             </div>
