@@ -1336,7 +1336,239 @@ mjx-container {
 
 [color-scheme=dark] .article-body .table > table tr td:hover,
 [color-scheme=dark] .article-body .table > table tr th:hover {
-    background-color: #333333EE
+	background-color: #333333EE
+}
+
+
+/* Frosted Glass UI */
+
+body {
+	background-color: #EAF0F7;
+	background-image:
+		radial-gradient(circle at 12% 28%, rgba(125, 172, 255, .32), transparent 30rem),
+		radial-gradient(circle at 88% 48%, rgba(190, 148, 255, .24), transparent 34rem),
+		linear-gradient(145deg, #F4F7FB 0%, #E8EEF6 52%, #F7F3FA 100%);
+	background-attachment: fixed
+}
+
+#container {
+	background-color: rgba(255, 255, 255, .62);
+	-webkit-backdrop-filter: blur(24px) saturate(135%);
+	backdrop-filter: blur(24px) saturate(135%);
+	border-radius: 0 0 18px 18px;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, .78),
+		0 18px 55px rgba(52, 70, 95, .16)
+}
+
+#header .inner {
+	background: rgba(22, 30, 43, .22);
+	-webkit-backdrop-filter: blur(14px) saturate(125%);
+	backdrop-filter: blur(14px) saturate(125%);
+	border-radius: 14px;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, .22),
+		0 12px 32px rgba(0, 0, 0, .16)
+}
+
+blockquote,
+.suffix-box {
+	background-color: rgba(255, 255, 255, .48) !important;
+	-webkit-backdrop-filter: blur(12px);
+	backdrop-filter: blur(12px);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .68)
+}
+
+.article-body .table > table,
+.article-body .table > table th,
+.article-body .table > table td {
+	background-color: rgba(255, 255, 255, .48)
+}
+
+.wrap-right .wrap-right-button {
+	background-color: rgba(255, 255, 255, .58);
+	-webkit-backdrop-filter: blur(14px) saturate(130%);
+	backdrop-filter: blur(14px) saturate(130%);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, .72),
+		0 8px 22px rgba(40, 54, 74, .16)
+}
+
+.wrap-right .wrap-right-button:hover {
+	background-color: rgba(255, 255, 255, .78)
+}
+
+@media (prefers-color-scheme: dark) {
+
+	:root:not([color-scheme]) body {
+		background-color: #151B24;
+		background-image:
+			radial-gradient(circle at 12% 28%, rgba(53, 94, 164, .34), transparent 30rem),
+			radial-gradient(circle at 88% 48%, rgba(103, 62, 142, .28), transparent 34rem),
+			linear-gradient(145deg, #171E28 0%, #111720 52%, #201A25 100%)
+	}
+
+	:root:not([color-scheme]) #container {
+		background-color: rgba(30, 36, 46, .64);
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, .08),
+			0 18px 55px rgba(0, 0, 0, .34)
+	}
+
+	:root:not([color-scheme]) blockquote,
+	:root:not([color-scheme]) .suffix-box,
+	:root:not([color-scheme]) .article-body .table > table,
+	:root:not([color-scheme]) .article-body .table > table th,
+	:root:not([color-scheme]) .article-body .table > table td {
+		background-color: rgba(55, 63, 76, .52) !important
+	}
+
+	:root:not([color-scheme]) .wrap-right .wrap-right-button {
+		background-color: rgba(48, 56, 68, .62)
+	}
+
+	:root:not([color-scheme]) .wrap-right .wrap-right-button:hover {
+		background-color: rgba(67, 77, 92, .78)
+	}
+}
+
+[color-scheme=dark] body {
+	background-color: #151B24;
+	background-image:
+		radial-gradient(circle at 12% 28%, rgba(53, 94, 164, .34), transparent 30rem),
+		radial-gradient(circle at 88% 48%, rgba(103, 62, 142, .28), transparent 34rem),
+		linear-gradient(145deg, #171E28 0%, #111720 52%, #201A25 100%)
+}
+
+[color-scheme=dark] #container {
+	background-color: rgba(30, 36, 46, .64);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, .08),
+		0 18px 55px rgba(0, 0, 0, .34)
+}
+
+[color-scheme=dark] blockquote,
+[color-scheme=dark] .suffix-box,
+[color-scheme=dark] .article-body .table > table,
+[color-scheme=dark] .article-body .table > table th,
+[color-scheme=dark] .article-body .table > table td {
+	background-color: rgba(55, 63, 76, .52) !important
+}
+
+[color-scheme=dark] .wrap-right .wrap-right-button {
+	background-color: rgba(48, 56, 68, .62)
+}
+
+[color-scheme=dark] .wrap-right .wrap-right-button:hover {
+	background-color: rgba(67, 77, 92, .78)
+}
+
+
+/* Rounded Rectangle Controls */
+
+button,
+.menu-button-open,
+.menu-button-close,
+.wrap-right .wrap-right-button,
+.error-404 .buttons-404 .button,
+.article-footer .category a,
+.article-footer .tag a,
+.pagination a,
+.pagination-bottom > .pagination a,
+.search-pagination .page-number,
+.search-close-icon,
+.tags-content a,
+.categories-content ul li a,
+.v[data-class="v"] .vbtn,
+.wl-btn,
+.wl-action,
+.wl-sort li,
+.clipboard,
+#DonateText,
+#DonateBox,
+#DonateBox li {
+	border-radius: 8px !important
+}
+
+.menu-button-close,
+.search-close-icon,
+.clipboard {
+	background-color: rgba(255, 255, 255, .52);
+	-webkit-backdrop-filter: blur(12px) saturate(130%);
+	backdrop-filter: blur(12px) saturate(130%);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, .62),
+		0 6px 16px rgba(40, 54, 74, .14)
+}
+
+.menu-button-close {
+	top: 1.2rem;
+	right: 1.2rem;
+	width: 34px;
+	height: 34px;
+	padding: 9px !important;
+	text-indent: 34px
+}
+
+.menu-button-close::before,
+.menu-button-close::after {
+	top: 9px;
+	height: 16px
+}
+
+.search-close-icon {
+	top: 7px;
+	right: 10px;
+	padding: 2px 10px;
+	border-left: none
+}
+
+.tags-content a,
+.categories-content ul li a {
+	padding: 3px 10px;
+	background: rgba(255, 255, 255, .42);
+	border: 1px solid rgba(255, 255, 255, .52);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58)
+}
+
+.tags-content a::after {
+	display: none
+}
+
+#DonateText {
+	width: 92px;
+	background-position: center 10px
+}
+
+#DonateBox {
+	overflow: hidden
+}
+
+@media (prefers-color-scheme: dark) {
+
+	:root:not([color-scheme]) .menu-button-close,
+	:root:not([color-scheme]) .search-close-icon,
+	:root:not([color-scheme]) .clipboard,
+	:root:not([color-scheme]) .tags-content a,
+	:root:not([color-scheme]) .categories-content ul li a {
+		background-color: rgba(48, 56, 68, .62);
+		border-color: rgba(255, 255, 255, .1);
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, .08),
+			0 6px 16px rgba(0, 0, 0, .24)
+	}
+}
+
+[color-scheme=dark] .menu-button-close,
+[color-scheme=dark] .search-close-icon,
+[color-scheme=dark] .clipboard,
+[color-scheme=dark] .tags-content a,
+[color-scheme=dark] .categories-content ul li a {
+	background-color: rgba(48, 56, 68, .62);
+	border-color: rgba(255, 255, 255, .1);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, .08),
+		0 6px 16px rgba(0, 0, 0, .24)
 }
 
 [color-scheme=dark] .pagination-bottom > .pagination a:link,

@@ -45,37 +45,28 @@
 			
 			classie.remove( bodyEl, 'show-menu' );
 
-			$('.menu-cover').fadeOut( 300 );
+			$('.menu-cover').stop( true, true ).fadeOut( 260 );
 			$('body').css( 'overflow', 'auto' );
 
 			// revert menu link image box
 			revert();
 
-			// animate path
-			setTimeout( function() {
-				// reset path
-				path.attr( 'd', initialPath );
+			// smoothly restore the menu edge
+			path.animate( { 'path' : initialPath }, 280, mina.easeinout, function() {
 				isAnimating = false;
-				// show menu button
-				$('.menu-button-open').show(); 
-			}, 300 );
+				$('.menu-button-open').fadeIn( 160 );
+			} );
 		} else {
 			// hide menu button
 			$('.menu-button-open').hide();
 			classie.add( bodyEl, 'show-menu' );
 			
-			// animate path
-			var pos = 0,
-			nextStep = function( pos ) {
-				if( pos > stepsTotal - 1 ) {
-					isAnimating = false; 
-					return;
-				}
-				path.animate( { 'path' : steps[pos] }, pos === 0 ? 400 : 500, pos === 0 ? mina.easein : mina.elastic, function() { nextStep(pos); } );
-				pos++;
-			};
+			// use one eased transition instead of the previous elastic bounce
+			path.animate( { 'path' : steps[stepsTotal - 1] }, 360, mina.easeinout, function() {
+				isAnimating = false;
+			} );
 			
-			$('.menu-cover').fadeIn( 300 );
+			$('.menu-cover').stop( true, true ).fadeIn( 260 );
 			$('body').css( 'overflow', 'hidden' );
 
 			// 设置消息动画时间
@@ -83,13 +74,12 @@
 			
 			// 防止移动端滚动
 			$('.menu-cover').on( 'touchmove', function(event){
-				event.preventDefault;
+				event.preventDefault();
 			}, false );
 
 			// 将菜单滚动条移动至顶端
 			$('.menu').scrollTop( 0 );
 
-			nextStep( pos );
 		}
 		isOpen = !isOpen;
 	}

@@ -79,9 +79,7 @@
                 <p>本文将介绍AI绘画模型Stable-diffusion的本地化部署及实战</p>
 <span id="more"></span>
 
-<p>在写本文前，请允许我向国内AI绘画带头人，赛博佛祖</p>
-<p>[@秋葉aaaki]: <a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">https://space.bilibili.com/12566101</a>	“秋葉aaaki “</p>
-<p>致以最诚挚的敬意。</p>
+<p>在写本文前，请允许我向国内 AI 绘画带头人、赛博佛祖 <a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">秋葉aaaki</a> 致以最诚挚的敬意。</p>
 <h1 id="AI模型本地化部署"><a href="#AI模型本地化部署" class="headerlink" title="AI模型本地化部署"></a>AI模型本地化部署</h1><blockquote>
 <p>在现在的AI大趋势下，有时候拥有自己可控的AI模型是至关重要的，本文就来介绍AI模型的具体部署步骤<br>前置条件</p>
 </blockquote>
@@ -91,10 +89,10 @@
 <li>电脑上有Python3.7之后的版本，推荐3.10.8（安装教程见网上，注意配置系统环境变量）</li>
 <li>建议电脑要有出国工具，安装过程中大部分问题都可以用科学解决</li>
 </ul>
-<p>win+r运行cmd，然后输入<code>nvidia-smi</code>命令，查看CUDA版本和N卡的驱动版本号，<img src="/./imgs/$%7Bfiilename%7D/4-1713101937000-13.png" alt="4">N卡驱动请更新到最新版本，如需安装驱动请前往英伟达官网<code>https://www.nvidia.cn/geforce/drivers/</code>自行下载。然后下载<code>https://pan.quark.cn/s/2c832199b09b</code>，如果你尚未安装Git请参考上篇文章。再下载</p>
-<p>[1]: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15OSs2dsWhhOTz0fo5fGNqA?pwd=otvy">https://pan.baidu.com/s/15OSs2dsWhhOTz0fo5fGNqA?pwd=otvy</a>	“秋叶启动器精简版”</p>
-<h3 id="1-Anaconda下载"><a href="#1-Anaconda下载" class="headerlink" title="1.Anaconda下载"></a>1.Anaconda下载</h3><p>下载</p>
-<p>[2]: <a target="_blank" rel="noopener" href="https://www.anaconda.com/products/distribution/">https://www.anaconda.com/products/distribution/</a>	“Anaconda”</p>
+<p>按 <code>Win + R</code>，输入 <code>cmd</code> 并回车，然后执行 <code>nvidia-smi</code> 命令，查看 CUDA 版本和 N 卡驱动版本号。</p>
+<p><img src="/./imgs/$%7Bfiilename%7D/4-1713101937000-13.png" alt="NVIDIA 驱动信息"></p>
+<p>N 卡驱动请更新到最新版本。如需安装驱动，可前往 <a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/drivers/">NVIDIA 官方驱动下载页面</a> 下载。然后下载<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/2c832199b09b">夸克网盘资源</a>。如果你尚未安装 Git，请参考上篇文章。最后下载<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15OSs2dsWhhOTz0fo5fGNqA?pwd=otvy">秋叶启动器精简版</a>。</p>
+<h3 id="1-Anaconda下载"><a href="#1-Anaconda下载" class="headerlink" title="1.Anaconda下载"></a>1.Anaconda下载</h3><p>下载 <a target="_blank" rel="noopener" href="https://www.anaconda.com/products/distribution/">Anaconda</a>。</p>
 <p>运行安装程序，按照向导完成安装，并确保在安装过程中添加Anaconda到系统环境变量，以便全局访问conda命令。</p>
 <h3 id="2-下载秋叶启动器自安装版本"><a href="#2-下载秋叶启动器自安装版本" class="headerlink" title="2.下载秋叶启动器自安装版本"></a>2.下载秋叶启动器自安装版本</h3><p>打开下载的秋叶启动器安装包，解压出来，把秋叶启动器单独拖到一个专门的文件夹里面，注意文件夹路径不能有中文，然后双击安装，此程序会自动安装所需依赖库【Q1】。安装成功后启动程序，此时会提示找不到内核，点确定，然后再点是。<br>此时弹出内核安装界面，选使用国内镜像安装，然后直接下一步，程序会自动安装，等待安装完成即可。</p>
 <p>进去后界面如下图所示<img src="/./imgs/$%7Bfiilename%7D/2-1713101878973-4.png" alt="2"></p>
@@ -108,25 +106,17 @@
 <p>选择启动器里面的一键启动，提示需要安装Pytorch库，选择忽略警告并继续，然后根据提示自动安装pytorch即可安装成功</p>
 <p>安装成功后再次点击启动，初次启动需要下载模型库，下载过程比较缓慢，请耐心等待。</p>
 <h3 id="4-SD-webui（Stable-Diffusion-WebUI）界面介绍以及初级使用"><a href="#4-SD-webui（Stable-Diffusion-WebUI）界面介绍以及初级使用" class="headerlink" title="4.SD-webui（Stable Diffusion-WebUI）界面介绍以及初级使用"></a>4.SD-webui（Stable Diffusion-WebUI）界面介绍以及初级使用</h3><p>启动成功后<img src="/./imgs/$%7Bfiilename%7D/6.png" alt="6"></p>
-<p>如果你的界面不是中文，请参考这篇文章</p>
-<p>[3]: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637982117">https://zhuanlan.zhihu.com/p/637982117</a>	“知乎教程”</p>
+<p>如果你的界面不是中文，请参考这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/637982117">中文界面配置教程</a>。</p>
 <p>（注意如果在sd网页端无法搜索到中文插件，可前往启动器的版本管理，安装新扩展界面进行安装）</p>
 <p>然后根据以下图片说明进行调试:</p>
 <p><img src="/./imgs/$%7Bfiilename%7D/7-1713101979558-17.png" alt="7"></p>
-<p>剩余更多进阶教学在</p>
-<p>[@秋葉aaaki]:  <a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">https://space.bilibili.com/12566101</a>	“秋葉aaaki”</p>
-<p>的</p>
-<p>[视频]: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iM4y1y7oA/">https://www.bilibili.com/video/BV1iM4y1y7oA/</a>	“视频评论区”</p>
-<p>和</p>
-<p>[教程]: <a target="_blank" rel="noopener" href="https://openai.wiki/stable-diffusion.html">https://openai.wiki/stable-diffusion.html</a>	“教程”</p>
-<p>查看</p>
+<p>更多进阶内容可以查看 <a target="_blank" rel="noopener" href="https://space.bilibili.com/12566101">秋葉aaaki 的个人空间</a>、<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iM4y1y7oA/">Stable Diffusion 视频教程</a>和 <a target="_blank" rel="noopener" href="https://openai.wiki/stable-diffusion.html">Stable Diffusion 使用教程</a>。</p>
 <h1 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><h3 id="Q1：安装到一半提示无法安装怎么办？"><a href="#Q1：安装到一半提示无法安装怎么办？" class="headerlink" title="Q1：安装到一半提示无法安装怎么办？"></a>Q1：安装到一半提示无法安装怎么办？</h3><p><strong>A1：科学解决</strong></p>
 <h3 id="Q2：安装过程中提示下载出错怎么办？"><a href="#Q2：安装过程中提示下载出错怎么办？" class="headerlink" title="Q2：安装过程中提示下载出错怎么办？"></a>Q2：安装过程中提示下载出错怎么办？</h3><p>A2：科学解决，如果仍然解决不了可直接点击主页里面的一键启动，选择忽视警告安装，然后自动安装一般也可以解决。</p>
-<p>更多Q&amp;A在参考</p>
-<p>[]: <a target="_blank" rel="noopener" href="https://openai.wiki/stable-diffusion-error.html">https://openai.wiki/stable-diffusion-error.html</a>	“错误汇总”</p>
+<p>更多 Q&amp;A 请参考 <a target="_blank" rel="noopener" href="https://openai.wiki/stable-diffusion-error.html">Stable Diffusion 错误汇总</a>。</p>
 <p>本网页会更新个人用到的资源站</p>
-<p>提示词网站<code>https://tags.novelai.dev/</code></p>
-<p>模型下载网站<code>https://civitai.ai</code>(需要科学)</p>
+<p>提示词网站：<a target="_blank" rel="noopener" href="https://tags.novelai.dev/">NovelAI Tags</a></p>
+<p>模型下载网站：<a target="_blank" rel="noopener" href="https://civitai.ai/">Civitai</a>（需要科学上网）</p>
 
                 
                 <p class="end">__END__</p>
@@ -185,6 +175,7 @@
         </div>
     
 </div>
+
     <div id="footer">
     <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2023-2027 Power by Cxzcanying. All Rights Reserved.</div>
 </div>
