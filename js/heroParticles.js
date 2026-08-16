@@ -223,17 +223,23 @@
             var target = mouse.active ? cfg.mouseStrength : 0;
             strength += (target - strength) * (1 - Math.pow(0.05, dt));
 
-            // 整体姿态：聚拢时轻微旋转，空闲时缓慢浮动；滚动时整体缩小下沉
-            var rotZ = t * ((mouse.active ? 0.12 : 0) + (1 - D) * 0.3) + (mouse.active ? 0 : 0.04 * Math.sin(0.25 * t));
+            // 整体姿态：只在聚拢阶段有一小段旋转，成形后仅保留轻微正弦摆动，避免文字越转越歪
+            var rotZ = (1 - D) * 0.3 + 0.03 * Math.sin(0.25 * t);
             var groupY = 0.15 * Math.sin(0.4 * t) + 0.8 * scroll;
             var groupScale = (0.75 + 0.25 * D) * (1 - 0.5 * scroll);
 
-            // 光源跟随鼠标（限制偏移量，鼠标离开舞台时光源仍锚定在文字附近）
-            var lx = cfg.lightX + clamp(mouse.sx * cfg.lightFollowX, -0.7, 0.7);
-            var ly = cfg.lightY + clamp(mouse.sy * 0.3, -0.3, 0.3);
-
             var cosR = Math.cos(rotZ), sinR = Math.sin(rotZ);
             var n = particles.length;
+
+            // 把鼠标坐标转换到粒子局部坐标系（与绘制同步：减去 groupY、逆旋转、除以 groupScale），
+            // 保证"指针指向哪里，粒子就在哪里散开/变亮"
+            var mx = mouse.sx, my = mouse.sy - groupY;
+            var mouseLocalX = (mx * cosR + my * sinR) / groupScale;
+            var mouseLocalY = (-mx * sinR + my * cosR) / groupScale;
+
+            // 光源跟随鼠标（限制偏移量，鼠标离开舞台时光源仍锚定在文字附近）
+            var lx = cfg.lightX + clamp(mouseLocalX * cfg.lightFollowX, -0.7, 0.7);
+            var ly = cfg.lightY + clamp(mouseLocalY * 0.3, -0.3, 0.3);
 
             ctx.clearRect(0, 0, W, H);
             ctx.globalCompositeOperation = 'lighter';
@@ -265,14 +271,14 @@
 
                 // 鼠标排斥：径向推开 + 每粒子噪声偏转
                 if (strength > 0.01 && assembly > 0.8) {
-                    var mx = cx - mouse.sx, my = cy - mouse.sy;
-                    var md = Math.sqrt(mx * mx + my * my);
+                    var mdx = cx - mouseLocalX, mdy = cy - mouseLocalY;
+                    var md = Math.sqrt(mdx * mdx + mdy * mdy);
                     if (md < cfg.mouseRadius && md > 0.001) {
                         var f = 1 - md / cfg.mouseRadius;
                         var force = f * f * f * strength * 0.5;
                         var na = Math.sin(idx * 0.37 + t * 0.5) * cfg.mouseDistort;
                         var ca = Math.cos(na), sa = Math.sin(na);
-                        var px2 = mx / md, py2 = my / md;
+                        var px2 = mdx / md, py2 = mdy / md;
                         p.vx += (px2 * ca - py2 * sa) * force;
                         p.vy += (px2 * sa + py2 * ca) * force;
                     }
