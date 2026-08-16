@@ -34,19 +34,21 @@
     <a id="cover"></a>
     <link type="text/css" rel="stylesheet" href="/css/archive.css">
 <div id="header" class="header">
-    <div class="vertical">
-        <div class="inner">
-            
+    
+        <div class="vertical">
+            <div class="inner">
+                
                 <h1 class="header-subtitle">归档</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text Chinese"></p>
                     <p class="article-info-text English"></p>                  
                 </div>
-            
+                
+            </div>
         </div>
-    </div>
     
 </div>
+
 <div id="container">
     
         
@@ -322,6 +324,28 @@
             strokeSize       : 0,
             parallaxAmount   : -0.2,
             animateSections  : true
+        },
+
+        HeroParticles : {
+            enable            : true,
+            text              : "cxzcanying",
+            fontFamily        : "Monda, 'Microsoft YaHei', sans-serif",
+            fontWeight        : 700,
+            density           : 3,
+            size              : 1.15,
+            color             : "#A9C7FF",
+            glowColor         : "#5A8DD9",
+            shadeMin          : 0.38,
+            shadeMax          : 1.3,
+            lightX            : 0.82,
+            lightY            : 0.4,
+            lightRange        : 1.35,
+            lightFollowX      : 0.9,
+            mouseRadius       : 0.42,
+            mouseStrength     : 1,
+            mouseDistort      : 3,
+            assemblyDuration  : 2.6,
+            maxParticles      : 3200
         },
 
         HomeHeaderImage : [
@@ -718,6 +742,7 @@
         Script: {
             aplayer          : "/js/APlayer.min.js",
             config           : "/js/require.config.js",
+            heroParticles    : "/js/heroParticles.js",
             index            : "/js/index.js",
             instantSearch    : "/js/instantsearch.min.js",
             iscroll          : "/js/iscroll.js",
@@ -753,6 +778,8 @@
         }  
     };
 </script>
+
+    
     <script type="text/javascript" src="/js/index.js"></script>
 </body>
 </html>
